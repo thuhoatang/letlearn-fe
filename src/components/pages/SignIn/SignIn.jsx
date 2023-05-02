@@ -1,20 +1,40 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
 import "./SignIn.css";
 import { Button, Checkbox, Form, Input } from "antd";
 import { Icon } from "@iconify/react";
 import logo from "./letlearn02.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import auth from "../../../service/auth";
+import { getProfile } from "../../../store/reduces/auth";
+import { useDispatch } from "react-redux";
+import { redirect } from "react-router-dom";
 
-const onFinish = async (values) => {
-  const res = await auth.signIn(values);
-  localStorage.setItem("access_token", res.data.access_token);
-};
+// const onFinish = async (values) => {
+//   const res = await auth.signIn(values);
+//   localStorage.setItem("access_token", res.data.access_token);
+//   getProfile();
+// };
 const onFinishFailed = (errorInfo) => {
   console.log("Failed:", errorInfo);
 };
 
 const SignIn = () => {
+  const dispatch = useDispatch();
+  let navigate = useNavigate();
+  const [message, setMessage] = useState(null);
+  const onFinish = useCallback(async (values) => {
+    const res = await auth.signIn(values);
+    console.log(res);
+    if (res.status === 401) {
+      setMessage("Sai mật khẩu hoặc tên đăng nhập!");
+    } else {
+      localStorage.setItem("access_token", res.data.access_token);
+      dispatch(getProfile());
+      navigate("/home");
+    }
+    console.log(11111111111111);
+  }, []);
+
   return (
     <div className="sign-in">
       <div className="left-signin">
@@ -65,6 +85,7 @@ const SignIn = () => {
           onFinishFailed={onFinishFailed}
           autoComplete="off"
         >
+          <p>{message}</p>
           <Form.Item
             className="username"
             name="username"

@@ -1,7 +1,7 @@
 import MasterLayout from "./components/layouts/MasterLayout";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./components/pages/Home/Home";
-import React from "react";
+import React, { useEffect } from "react";
 import HomeLogged from "./components/pages/HomeLogged/HomeLogged";
 import SignUp from "./components/pages/SignUp/SignUp";
 import SigninSignup from "./components/layouts/SigninSignup";
@@ -13,6 +13,9 @@ import ManageCourse from "./components/pages/ManageCourse/ManageCourse";
 import TeacherMasterLayout from "./components/layouts/TeacherMasterLayout";
 import AddCourse from "./components/AddCourse/AddCourse";
 import AddFileCourse from "./components/pages/AddFileCourse/AddFileCourse";
+import { Provider, useDispatch } from "react-redux";
+import { getProfile } from "./store/reduces/auth";
+
 const router = createBrowserRouter([
   {
     path: "",
@@ -45,6 +48,11 @@ const router = createBrowserRouter([
   },
 ]);
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getProfile());
+  }, []);
   return (
     <div className="App">
       <React.StrictMode>
