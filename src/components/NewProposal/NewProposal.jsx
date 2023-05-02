@@ -1,11 +1,24 @@
 import React from "react";
 import "./NewProposal.css";
+import { useSelector } from "react-redux";
+import { selectCategoies } from "../../store/reduces/categories";
+import { Link } from "react-router-dom";
 
 const NewProposal = () => {
+  const categories = useSelector(selectCategoies);
+
   return (
     <div className="new-proposal">
       <p className="title">Đề xuất mới: </p>
-      <a className="menu-content" href="#">
+
+      {categories.map((category) => {
+        return category.subCategories.map((sub) => (
+          <Link className="menu-content" to="#">
+            {sub.name}
+          </Link>
+        ));
+      })}
+      {/* <a className="menu-content" href="#">
         marketing
       </a>
       <a className="menu-content" href="#">
@@ -19,7 +32,7 @@ const NewProposal = () => {
       </a>
       <a className="menu-content" href="#">
         lập trình website
-      </a>
+      </a> */}
     </div>
   );
 };

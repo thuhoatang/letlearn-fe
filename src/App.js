@@ -15,6 +15,7 @@ import AddCourse from "./components/AddCourse/AddCourse";
 import AddFileCourse from "./components/pages/AddFileCourse/AddFileCourse";
 import { Provider, useDispatch } from "react-redux";
 import { getProfile } from "./store/reduces/auth";
+import { getAllCategories } from "./store/reduces/categories";
 
 const router = createBrowserRouter([
   {
@@ -52,6 +53,7 @@ function App() {
 
   useEffect(() => {
     dispatch(getProfile());
+    dispatch(getAllCategories());
   }, []);
   return (
     <div className="App">
