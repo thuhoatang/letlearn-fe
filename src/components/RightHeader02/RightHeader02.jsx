@@ -1,8 +1,13 @@
 import React from "react";
 import "./RightHeader02.css";
 import { Icon } from "@iconify/react";
+import { useDispatch, useSelector } from "react-redux";
+import { login, logout, selectUser } from "../../store/reduces/auth";
 
 const RightHeader02 = () => {
+  const dispatch = useDispatch();
+  const user = useSelector(selectUser);
+
   return (
     <div className="right-hearder_02">
       <button className="btn-my_course">My Courses</button>
@@ -21,8 +26,21 @@ const RightHeader02 = () => {
         <div class="dropdown-content">
           <a href="#">Thông tin cá nhân</a>
           <a href="#">Mục yêu thích</a>
-          <a href="#">Thành Giảng viên</a>
-          <a href="#">Đăng xuất</a>
+          {user.roles.find((role) => role === "Teacher") ? (
+            <a href="#">Giảng viên</a>
+          ) : (
+            <a href="#">Thành Giảng viên</a>
+          )}
+          {/* // <a href="#">Thành Giảng viên</a> */}
+          <a
+            onClick={(e) => {
+              e.preventDefault();
+              dispatch(logout());
+            }}
+            href="#"
+          >
+            Đăng xuất
+          </a>
         </div>
       </div>
     </div>

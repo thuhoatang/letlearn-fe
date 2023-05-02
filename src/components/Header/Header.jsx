@@ -3,8 +3,11 @@ import "./Header.css";
 import logoLetlearn from "../../asset/images/logoLetlearn.png";
 import RightHeader01 from "../RightHeader01/RightHeader01";
 import RightHeader02 from "../RightHeader02/RightHeader02";
+import { useDispatch, useSelector } from "react-redux";
+import { selectUser } from "../../store/reduces/auth";
 
 function Header() {
+  const user = useSelector(selectUser);
   return (
     <>
       <div className="header">
@@ -37,8 +40,9 @@ function Header() {
         </div>
 
         <div className="rightHeader">
+          {user ? <RightHeader02 /> : <RightHeader01 />}
           {/* <RightHeader01 /> */}
-          <RightHeader02 />
+          {/* <RightHeader02 /> */}
         </div>
       </div>
     </>

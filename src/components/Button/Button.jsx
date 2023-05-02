@@ -1,10 +1,12 @@
 import React from "react";
 import "./Button.css";
 
-const Button = ({ title, bgColor }) => {
+const Button = ({ title, bgColor, ...props }) => {
   return (
     <>
-      <button className={`${bgColor ? bgColor : ""}`}>{title}</button>
+      <button {...props} className={`${bgColor ? bgColor : ""}`}>
+        {title}
+      </button>
     </>
   );
 };

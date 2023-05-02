@@ -32,7 +32,6 @@ const SignIn = () => {
       dispatch(getProfile());
       navigate("/home");
     }
-    console.log(11111111111111);
   }, []);
 
   return (
