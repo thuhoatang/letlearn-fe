@@ -1,0 +1,132 @@
+.cart-course {
+    width: 100%;
+    position: relative;
+    padding: 10px
+}
+
+.cart-content {
+    /* border: 1px solid black; */
+    height: 300px;
+}
+
+.cart-content .header-cart {
+    width: 100%;
+
+}
+
+.blank-cart {
+    position: absolute;
+    box-shadow: rgba(50, 71, 135, 0.5) 0px -80px 50px 0px inset;
+
+    width: 96.3%;
+    height: 300px;
+    bottom: 80.88px;
+    border-radius: 20px;
+
+}
+
+.name-course {
+    width: 90%;
+    display: flex;
+    position: absolute;
+    height: 20px;
+    bottom: 116px;
+    color: rgb(255, 255, 255);
+    justify-content: space-between;
+}
+
+.name-course .title {
+    width: 50%;
+    font-weight: 400;
+    font-size: 20px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 160px;
+    height: 50px;
+    white-space: nowrap;
+}
+
+.name-course .button-cart {
+    width: 50px;
+    border-radius: 5px;
+    height: 50px;
+    background: white;
+    position: relative;
+    top: -10px
+}
+
+.name-course .button-cart .icon-cart {
+    font-size: 25px;
+    color: #686868;
+    position: absolute;
+    top: 12px;
+    left: 19px;
+}
+
+.cart-content .header-cart img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 20px 20px 20px 20px;
+}
+
+/* ------------------- */
+.footer-cart {
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+}
+
+.left-footer-cart {
+    display: flex;
+}
+
+.left-footer-cart .avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 0.5px solid #EA4C89
+}
+
+.left-footer-cart .avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.lecturer-armorial {
+    background: #EA4C89;
+    padding: 1px 6px;
+    border-radius: 5px;
+    color: white;
+}
+
+.info-lecturer a {
+    text-decoration: none;
+    color: black
+}
+
+.icon-heart,
+.icon-eye {
+    font-size: 25px
+}
+
+.react-course {
+    color: #686868
+}
+
+/* -------- */
+.right-footer-cart {
+    display: flex;
+}
+
+.right-footer-cart .status {
+    font-weight: bold;
+    font-size: 16px;
+    color: #EA4C89;
+    border: 1px solid #ffe9e9;
+    padding: 12px;
+    border-radius: 5px;
+    background: #f4e7e7
+}

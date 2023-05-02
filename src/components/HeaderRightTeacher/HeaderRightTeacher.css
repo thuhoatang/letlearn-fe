@@ -1,0 +1,27 @@
+.header-right-teacher {
+    width: 78%;
+    position: fixed;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background: white;
+}
+
+.header-right-teacher .avt-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid #EA4C89;
+}
+
+.header-right-teacher .avt-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.header-right-teacher a {
+    text-decoration: none;
+    color: #EA4C89
+}

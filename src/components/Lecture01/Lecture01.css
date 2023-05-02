@@ -1,0 +1,10 @@
+.add-lecture {
+    margin: 10px 28px
+}
+
+.title-lecture {
+    width: 624px;
+    height: 60px;
+    border-radius: 5px;
+    border: 1px solid #EA4C89;
+}

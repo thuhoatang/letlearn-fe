@@ -1,0 +1,87 @@
+.top-course-detail {
+    height: 500px;
+    background: #EA4C89;
+    display: flex;
+    color: white;
+    padding: 25px 25px
+}
+
+.top-course-detail .left,
+.right {
+    width: 50%;
+}
+
+.top-course-detail .left .name_course {
+    font-size: 45px;
+    font-weight: 700;
+    font-family: sans-serif;
+
+}
+
+.top-course-detail .left .decription_course {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 75%;
+    height: 6em;
+    white-space: normal;
+}
+
+.top-course-detail .left .react-course .heart {
+    font-size: 20px;
+    color: white;
+}
+
+.top-course-detail .left .react-course {
+    margin: 15px;
+    display: flex;
+}
+
+.top-course-detail .left .react-course .heart .icon-heart {
+    font-size: 37px
+}
+
+.top-course-detail .left .react-course .eye {
+    font-size: 20px;
+    color: white
+}
+
+.top-course-detail .left .react-course .icon-eye {
+    font-size: 37px
+}
+
+
+.top-course-detail .left .react-course .comment {
+    font-size: 20px;
+    color: white
+}
+
+.top-course-detail .left .react-course .icon-comment {
+    font-size: 35px
+}
+
+.button-learn {
+    margin: 22px;
+}
+
+.button-learn button {
+    color: #EA4C89;
+    background: white;
+}
+
+.right {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.right .img_course {
+    /* height: 300px */
+}
+
+.right .img_course img {
+    height: 450px;
+    width: 657px;
+    border-radius: 10px;
+    border: 1px solid white;
+    object-fit: cover;
+}

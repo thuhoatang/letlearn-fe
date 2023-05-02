@@ -1,0 +1,61 @@
+.form-add {
+    display: flex;
+    flex-direction: column;
+    margin: 0px 22pc
+}
+
+.form-add .title-add-name-course {
+    font-size: 15px;
+    font-weight: bold;
+    margin: 0px
+}
+
+
+.add-name-course {
+    width: 600px;
+    border: 1px solid #EA4C89;
+    border-radius: 5px;
+    height: 60px;
+    padding: 10px;
+}
+
+.add-name-course:focus {
+    outline: none
+}
+
+
+.ant-select-selector {
+    width: 600px;
+    height: 60px;
+    border: 1px solid #EA4C89
+}
+
+.add-detail-course {
+    width: 600px;
+    height: 100px;
+    border: 1px solid #EA4C89;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.add-detail-course:focus {
+    outline: none
+}
+
+.button-cancel-next {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.btn-cancel {
+    background: #1DCF00;
+    color: white;
+
+}
+
+.btn-next {
+    background: #EA4C89;
+    color: white;
+    ;
+}

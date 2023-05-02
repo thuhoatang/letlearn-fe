@@ -1,0 +1,20 @@
+.list-option-type {
+    width: 624px;
+    height: 60px;
+    border: 1px solid #EA4C89;
+    display: flex;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 28px;
+    border-radius: 5px;
+    background: #EA4C89;
+}
+
+.list-option-type .button-video,
+.button-text,
+.button-practice-test {
+    background: #ffffff;
+    color: rgb(0, 0, 0);
+}

@@ -1,0 +1,22 @@
+.add-section {
+    width: 1276px;
+    height: auto;
+    background: #f0f0f0;
+    border-radius: 15px;
+    margin: 20px 0px;
+    padding: 20px 0px
+}
+
+.curriculum {
+    margin: 23px
+}
+
+.add-file-course .title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.button-add-section {
+    background: #EA4C89;
+    color: #FFFFFF;
+}

@@ -1,0 +1,23 @@
+.new-proposal {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.new-proposal a,
+p {
+    margin: 0px 25px;
+}
+
+.new-proposal a {
+    text-decoration: none;
+}
+
+.new-proposal .title {
+    font-weight: bold;
+}
+
+.new-proposal .menu-content {
+    color: #EA4C89;
+}

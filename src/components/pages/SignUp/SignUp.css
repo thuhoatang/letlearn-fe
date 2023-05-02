@@ -1,0 +1,118 @@
+.sign-up {
+    display: flex;
+    height: 100vh;
+
+}
+
+.left-signup {
+    width: 50%;
+    background: #FE628C;
+    height: 100vh;
+    padding: 50px;
+}
+
+.left-signup .title {
+    margin: 70px 0px;
+    font-size: 50px;
+    color: white;
+    font-weight: 600;
+}
+
+.right-signup {
+    width: 50%;
+    background: #ffffffee;
+    padding: 30px;
+}
+
+.right-signup .ask-account {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+}
+
+.right-signup .ask-account .sign-in {
+    text-decoration: none;
+    color: #EA4C89
+}
+
+.title-form {
+    font-size: 27px;
+    font-family: inherit;
+    font-weight: bold;
+    margin: 30px 25px;
+}
+
+.btn-google {
+    width: 280px;
+    height: 60px;
+    border: #EA4C89 solid 1px;
+    background: #1A73E8;
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.btn-google .lable-btn-google {
+    width: 50px;
+    height: auto;
+    /* border: 1px solid #ffffff; */
+    padding: 9px;
+    background: white;
+    border-radius: 5px;
+}
+
+.btn-google .icon-google {
+    font-size: 30px
+}
+
+/* ------ */
+.line {
+    margin: 40px auto;
+    height: 1px;
+    width: 80%;
+    background: #D4D4D4;
+    display: flex;
+
+}
+
+/* ---------- */
+
+.right-signup .ask-account {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    height: 16px;
+}
+
+.form-signin {
+    width: 100%;
+    margin: 25px;
+}
+
+.name-username {
+    display: flex;
+
+}
+
+.name-username .fullname,
+.username {
+    width: 50%;
+}
+
+.input-name,
+.input-fullname {
+    height: 50px;
+    width: 300px;
+    border: 1px solid #EA4C89
+}
+
+.input-password,
+.input-email {
+    height: 50px;
+    border: 1px solid #EA4C89;
+    width: 689px;
+}
+
+.button-submit {
+    background: #EA4C89
+}

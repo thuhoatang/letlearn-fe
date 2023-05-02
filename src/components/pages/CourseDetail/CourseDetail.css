@@ -1,0 +1,26 @@
+.body-detail-course {
+    display: flex;
+    width: 100%;
+    margin-top: 20px;
+    justify-content: space-between;
+}
+
+.left-course-detail {
+    width: 49.4%;
+    padding: 10px 10px 20px 10px;
+    border-top: 1px solid #EA4C89;
+    border-radius: 0px 10px 10px 0px;
+    border-bottom: 1px solid #EA4C89;
+    border-right: 1px solid #EA4C89;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.right-course-detail {
+    width: 49.4%;
+    padding: 10px 10px 20px 10px;
+    border-top: 1px solid #EA4C89;
+    border-radius: 10px 0px 0px 10px;
+    border-bottom: 1px solid #EA4C89;
+    border-left: 1px solid #EA4C89;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}

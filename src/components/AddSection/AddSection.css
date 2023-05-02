@@ -1,0 +1,28 @@
+.add-section .header-section {
+    display: flex;
+    align-items: center
+}
+
+.add-section .header-section .button-delete {
+    background: transparent;
+
+}
+
+.add-section .header-section .button-delete .icon-detele {
+    font-size: 25px;
+    color: #EA4C89;
+}
+
+.add-section .input-name-section {
+    width: 624px;
+    height: 60px;
+    border-radius: 5px;
+    border: 1px solid #EA4C89;
+}
+
+.button-add-lesson,
+.button-submit-lesson {
+    background: #EA4C89;
+    color: #FFFFFF;
+    margin: 5px 28px
+}

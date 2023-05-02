@@ -1,0 +1,30 @@
+.banner {
+    width: 100%;
+    /* opacity: 0.8    ; */
+    /* position: relative; */
+}
+
+.banner img {
+    width: 100%;
+
+}
+
+
+.text-banner {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    font-size: 70px;
+    color: white;
+    top: 200px;
+}
+
+.text-title {
+    font-weight: 900;
+}
+
+.text-content {
+    font-size: 50px
+}

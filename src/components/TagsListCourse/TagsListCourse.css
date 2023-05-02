@@ -1,0 +1,15 @@
+.list-filter {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.filter-categories,
+.filter-creator,
+.filter-status {
+    width: 250px;
+    height: 50px;
+    padding: 10px;
+    border: 1px solid #EA4C89;
+    border-radius: 5px;
+}

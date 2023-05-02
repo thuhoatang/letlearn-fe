@@ -1,0 +1,33 @@
+.comment-action {
+    margin: 25px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+
+.comment-action .input-comment {
+    width: 400px;
+    height: 70px;
+    border: 1px solid #EA4C89;
+    border-radius: 7px;
+    padding: 10px;
+}
+
+.comment-action .input-comment:focus {
+    outline: none
+}
+
+.rating-heart button {
+    background: transparent
+}
+
+.rating-heart button:focus {
+    outline: none
+}
+
+.rating-heart .icon-heart {
+    font-size: 40px;
+    /* color: #D9D9D9; */
+}

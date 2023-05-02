@@ -1,0 +1,91 @@
+.sign-in {
+    display: flex;
+    height: 100vh;
+}
+
+.left-signin {
+    width: 50%;
+    background: #FE628C;
+    height: 100vh;
+    padding: 50px;
+}
+
+.left-signin .title {
+    margin: 70px 0px;
+    font-size: 50px;
+    color: white;
+    font-weight: 600;
+}
+
+/* --- */
+.right-signin {
+    width: 50%;
+    background: #ffffffee;
+    padding: 30px;
+}
+
+.right-signin .ask-account {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    height: 16px;
+}
+
+.right-signin .ask-account .sign-in {
+    text-decoration: none;
+    color: #EA4C89
+}
+
+.title-form {
+    font-size: 27px;
+    font-family: inherit;
+    font-weight: bold;
+    margin: 20px 25px;
+}
+
+.btn-google {
+    width: 296px;
+    height: 60px;
+    border: #EA4C89 solid 1px;
+    background: #1A73E8;
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.btn-google .lable-btn-google {
+    width: 50px;
+    height: auto;
+    /* border: 1px solid #ffffff; */
+    padding: 9px;
+    background: white;
+    border-radius: 5px;
+}
+
+.btn-google .icon-google {
+    font-size: 30px
+}
+
+/* ------ */
+.line {
+    margin: 40px auto;
+    height: 1px;
+    width: 80%;
+    background: #D4D4D4;
+    display: flex;
+
+}
+
+.input-password,
+.input-username {
+    height: 50px;
+    border: 1px solid #EA4C89;
+    width: 689px;
+}
+
+.button-submit {
+    width: 200px;
+    height: 50px;
+    position: relative;
+    left: -259px;
+}

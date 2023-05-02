@@ -1,0 +1,77 @@
+.header {
+    width: 100%;
+    height: 100px;
+    background: #ffffff;
+    position: fixed;
+    display: flex;
+    padding: 20px 100px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    overflow: hidden;
+    top: 0;
+    flex-wrap: nowrap;
+    align-items: center;
+    z-index: 1
+}
+
+.logo {
+    width: 20%
+}
+
+.menu {
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.menu .menu-header a {
+    text-decoration: none;
+    color: #8C8C8C;
+}
+
+.menu .menu-header a:hover {
+    color: #EA4C89
+}
+
+
+.rightHeader {
+    width: 30%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+/* categorise */
+
+.categorise {
+    position: relative;
+}
+
+.categorise .dropdown-categorise {
+    display: none;
+    position: fixed;
+    background-color: #ffffff;
+    min-width: auto;
+    box-shadow: 0px 8px 16px 0px rgba(251, 185, 185, 0.2);
+    z-index: 999;
+    border-radius: 10px;
+    border: 1px solid #EA4C89;
+    padding: 10px;
+    right: 890px;
+    height: auto;
+}
+
+.categorise .dropdown-categorise a {
+    color: #EA4C89;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.categorise .dropdown-categorise a:hover {
+    background-color: #cccccc;
+}
+
+.categorise:hover .dropdown-categorise {
+    display: block;
+}

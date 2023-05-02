@@ -1,0 +1,95 @@
+.card-manage-course {
+    width: 100%;
+    height: 120px;
+    border-radius: 5px;
+    border: 1px solid #EA4C89;
+    margin: 15px 0px;
+    display: flex;
+    padding: 5px;
+}
+
+.card-manage-course .img-course {
+    width: 15%;
+    height: 98%;
+
+}
+
+.card-manage-course .img-course img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.card-manage-course .name-date {
+    width: 30%;
+    height: 100%;
+
+}
+
+.card-manage-course .student {
+    width: 18.3%;
+    height: 100%;
+}
+
+.card-manage-course .rating-heart {
+    width: 18.3%;
+    height: 100%;
+}
+
+.card-manage-course .comment {
+    width: 18.3%;
+    height: 100%;
+}
+
+.name-date .btn-update-course {
+    width: 75%;
+    height: 35px;
+    padding: 3px;
+    border-radius: 5px;
+    margin-left: 23px;
+    background: #EA4C89;
+    color: white;
+}
+
+.student .p-student {
+
+    margin-top: 24px;
+}
+
+.student .btn-see-student {
+    width: 90%;
+    height: 35px;
+    padding: 3px;
+    border-radius: 5px;
+    background: #EA4C89;
+    color: white;
+}
+
+.rating-heart .p-rating-heart {
+    margin-top: 24px;
+
+}
+
+.rating-heart .btn-see-student {
+    width: 90%;
+    height: 35px;
+    padding: 3px;
+    border-radius: 5px;
+    background: #EA4C89;
+    color: white;
+}
+
+.comment .p-comment {
+    margin-top: 24px;
+
+}
+
+.comment .btn-see-student {
+    width: 90%;
+    height: 35px;
+    padding: 3px;
+    border-radius: 5px;
+    background: #EA4C89;
+    color: white;
+}

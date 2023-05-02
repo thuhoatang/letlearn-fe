@@ -1,0 +1,19 @@
+.body-content {
+    margin-top: 70px;
+
+}
+
+.teacher-master-layout {
+    display: flex;
+}
+
+.teacher-master-layout .menu-left {
+    position: fixed;
+
+}
+
+
+.teacher-master-layout .body-right {
+    position: relative;
+    left: 300px;
+}

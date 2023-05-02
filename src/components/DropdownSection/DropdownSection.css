@@ -1,0 +1,30 @@
+.section {
+    margin: 0px 25px
+}
+
+.section .title_section {
+    width: 100%;
+    height: 70px;
+    background: #EA4C89;
+    font-weight: 500;
+    color: white
+}
+
+.section .list_lesson {
+    width: 100%;
+    height: auto;
+    background: #e2e2e2;
+    padding: 15px 25px
+}
+
+.section .list_lesson .item-list_lesson {
+    margin: 10px 0;
+}
+
+.section .list_lesson .item-list_lesson .icon-video,
+.icon-text,
+.icon-ask {
+    font-size: 30px;
+    margin-right: 10px;
+    color: #EA4C89
+}

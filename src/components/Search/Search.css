@@ -1,0 +1,39 @@
+.search-bar {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.search-bar div {
+    position: relative;
+    top: -36px;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    background: white;
+    padding: 0px 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+
+
+#search-home {
+    width: 550px;
+    height: 70px;
+    border: none;
+
+}
+
+#search-home:focus {
+    outline: none;
+}
+
+.search-bar button {
+    background: transparent;
+    width: 50px;
+}
+
+.search-bar button .icon-search {
+    font-size: 30px;
+    color: #8A7979;
+}

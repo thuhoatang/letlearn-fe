@@ -1,0 +1,9 @@
+.right-course-detail .header-react {
+    font-size: 22px;
+    display: flex;
+    color: #EA4C89;
+}
+
+.right-course-detail .list-item_comment {
+    margin-left: 25px
+}

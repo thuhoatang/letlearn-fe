@@ -1,0 +1,68 @@
+.right-hearder_02 {
+    display: flex;
+
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.right-hearder_02 button {
+    background: transparent
+}
+
+.right-hearder_02 .btn-avt {
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.right-hearder_02 .btn-avt img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+}
+
+.right-hearder_02 .btn-my_course {
+    color: #EA4C89;
+}
+
+.right-hearder_02 .btn-my_cart .icon-cart {
+    font-size: 35px;
+    color: #EA4C89;
+
+}
+
+
+.btn-avt {
+    position: relative;
+
+}
+
+.dropdown-content {
+    display: none;
+    position: fixed;
+    background-color: #ffffff;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(251, 185, 185, 0.2);
+    z-index: 999;
+    border-radius: 10px;
+    border: 1px solid #EA4C89;
+    padding: 10px;
+    right: 10px;
+    height: 250px;
+}
+
+.dropdown-content a {
+    color: #EA4C89;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #cccccc;
+}
+
+.avatar:hover .dropdown-content {
+    display: block;
+}
