@@ -7,6 +7,12 @@ import {
   FundOutlined,
 } from "@ant-design/icons";
 import { Menu } from "antd";
+import { useNavigate } from "react-router-dom";
+
+const mappingRoute = {
+  1: "/teacher/manage-course",
+  2: "/teacher/add-course",
+};
 function getItem(label, key, icon, children, type) {
   return {
     key,
@@ -52,11 +58,15 @@ const items = [
 ];
 
 const MenuLeftTeacher = () => {
+  const navigate = useNavigate();
   const onClick = (e) => {
-    console.log("click ", e);
+    navigate(mappingRoute[e.key]);
   };
   return (
     <Menu
+      // onChange={(e) => {
+
+      // }}
       className="menu-left-teacher"
       onClick={onClick}
       style={{

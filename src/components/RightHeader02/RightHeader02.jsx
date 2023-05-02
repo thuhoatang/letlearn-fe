@@ -3,6 +3,7 @@ import "./RightHeader02.css";
 import { Icon } from "@iconify/react";
 import { useDispatch, useSelector } from "react-redux";
 import { login, logout, selectUser } from "../../store/reduces/auth";
+import { Link } from "react-router-dom";
 
 const RightHeader02 = () => {
   const dispatch = useDispatch();
@@ -27,9 +28,9 @@ const RightHeader02 = () => {
           <a href="#">Thông tin cá nhân</a>
           <a href="#">Mục yêu thích</a>
           {user.roles.find((role) => role === "Teacher") ? (
-            <a href="#">Giảng viên</a>
+            <Link to="/teacher">Giảng viên</Link>
           ) : (
-            <a href="#">Thành Giảng viên</a>
+            <Link to="#">Thành Giảng viên</Link>
           )}
           {/* // <a href="#">Thành Giảng viên</a> */}
           <a
