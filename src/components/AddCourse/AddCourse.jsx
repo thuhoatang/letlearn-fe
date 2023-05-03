@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import "./AddCourse.css";
-import { Select, Space } from "antd";
+import { Form, Input, Select, Space } from "antd";
 import { Upload } from "antd";
 import ImgCrop from "antd-img-crop";
+import { useSelector } from "react-redux";
+import { selectCategoies } from "../../store/reduces/categories";
 
 const { Option } = Select;
 const handleChange = (value) => {
@@ -10,6 +12,8 @@ const handleChange = (value) => {
 };
 
 const AddCourse = () => {
+  const categories = useSelector(selectCategoies);
+
   const [fileList, setFileList] = useState([
     {
       uid: "-1",
@@ -47,72 +51,84 @@ const AddCourse = () => {
       </p>
 
       <p>Tạo khóa học của bạn</p>
+      <Form
+        onFinish={(value) => {
+          console.log(value);
+        }}
+        onFinishFailed={(value) => {
+          console.log(value);
+        }}
+        autoComplete="off"
+      >
+        <div className="form-add">
+          <p className="title-add-name-course">Tên khóa học</p>
+          <Form.Item name={"title"}>
+            <input className="add-name-course" type="text" />
+          </Form.Item>
+          <p className="title-add-name-course mt-3">Danh mục</p>
+          <Form.Item name={"SubCategory"}>
+            <Select
+              className="select-categories mt-"
+              mode="multiple"
+              style={{
+                width: "600px",
+                height: "60px",
+                // border: "1px solid #EA4C89",
+              }}
+              placeholder="select one country"
+              onChange={handleChange}
+              optionLabelProp="label"
+            >
+              {categories?.map((category) => {
+                return category.subCategories?.map((sub) => (
+                  <Option value={sub.id} label={sub.name}>
+                    <Space>{sub.name}</Space>
+                  </Option>
+                ));
+              })}
+            </Select>
+          </Form.Item>
 
-      <div className="form-add">
-        <p className="title-add-name-course">Tên khóa học</p>
-        <input className="add-name-course" type="text" />
-        <p className="title-add-name-course mt-3">Danh mục</p>
-        <Select
-          className="select-categories mt-"
-          mode="multiple"
-          style={{
-            width: "600px",
-            height: "60px",
-            // border: "1px solid #EA4C89",
-          }}
-          placeholder="select one country"
-          defaultValue={["china"]}
-          onChange={handleChange}
-          optionLabelProp="label"
-        >
-          <Option value="china" label="China">
-            <Space>China (中国)</Space>
-          </Option>
-          <Option value="usa" label="USA">
-            <Space>USA (美国)</Space>
-          </Option>
-          <Option value="japan" label="Japan">
-            <Space>Japan (日本)</Space>
-          </Option>
-          <Option value="korea" label="Korea">
-            <Space>Korea (韩国)</Space>
-          </Option>
-        </Select>
-
-        <p className="title-add-name-course mt-3">Mô tả khóa học</p>
-        <textarea
-          className="add-detail-course"
-          name="w3review"
-          rows="4"
-          cols="50"
-        >
-          At w3schools.com you will learn how to make a website. They offer free
-          tutorials in all web development technologies.
-        </textarea>
-
-        <p className="title-add-name-course mt-3">Giá tiền</p>
-        <input className="price-course add-name-course" type="number" />
-
-        <p className="title-add-name-course mt-3">Ảnh bìa</p>
-        <ImgCrop rotationSlider>
-          <Upload
-            className="my-3"
-            action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
-            listType="picture-card"
-            fileList={fileList}
-            onChange={onChange}
-            onPreview={onPreview}
+          <p className="title-add-name-course mt-3">Mô tả khóa học</p>
+          <Form.Item name="decription">
+            <Input.TextArea></Input.TextArea>
+          </Form.Item>
+          {/* <textarea
+            className="add-detail-course"
+            name="w3review"
+            rows="4"
+            cols="50"
           >
-            {fileList.length < 5 && "+ Upload"}
-          </Upload>
-        </ImgCrop>
+            At w3schools.com you will learn how to make a website. They offer
+            free tutorials in all web development technologies.
+          </textarea> */}
 
-        <div className="button-cancel-next">
-          <button className="btn-cancel">Hủy</button>
+          <p className="title-add-name-course mt-3">Giá tiền</p>
+          <Form.Item name={"price"}>
+            <input className="price-course add-name-course" type="number" />
+          </Form.Item>
 
-          <button className="btn-next">Tiếp theo</button>
-        </div>
-      </div>
+          <p className="title-add-name-course mt-3">Ảnh bìa</p>
+          <ImgCrop rotationSlider>
+            <Upload
+              className="my-3"
+              action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+              listType="picture-card"
+              fileList={fileList}
+              onChange={onChange}
+              onPreview={onPreview}
+            >
+              {fileList.length < 5 && "+ Upload"}
+            </Upload>
+          </ImgCrop>
+
+          <div className="button-cancel-next">
+            <button className="btn-cancel">Hủy</button>
+
+            <button className="btn-next">Tiếp theo</button>
+          </div>
+        </div>{" "}
+      </Form>
     </div>
   );
 };

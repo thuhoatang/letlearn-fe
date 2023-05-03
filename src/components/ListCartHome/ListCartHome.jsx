@@ -5,7 +5,7 @@ import CartHome from "../CartHome/CartHome";
 const ListCartHome = ({ courses }) => {
   return (
     <div className="list-cart my-4">
-      {courses.map((course) => (
+      {courses?.map((course) => (
         <CartHome
           courseImage={course.image.url}
           courseTitle={course.title}
@@ -15,6 +15,7 @@ const ListCartHome = ({ courses }) => {
           loves={course.loves}
         />
       ))}
+
       {/* <CartHome />
       <CartHome />
       <CartHome />

@@ -11,8 +11,8 @@ const NewProposal = () => {
     <div className="new-proposal">
       <p className="title">Đề xuất mới: </p>
 
-      {categories.map((category) => {
-        return category.subCategories.map((sub) => (
+      {categories?.map((category) => {
+        return category.subCategories?.map((sub) => (
           <Link className="menu-content" to="#">
             {sub.name}
           </Link>
