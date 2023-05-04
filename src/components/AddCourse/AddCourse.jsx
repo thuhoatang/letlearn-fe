@@ -5,6 +5,7 @@ import { Upload } from "antd";
 import ImgCrop from "antd-img-crop";
 import { useSelector } from "react-redux";
 import { selectCategoies } from "../../store/reduces/categories";
+import courseService from "../../service/course";
 
 const { Option } = Select;
 const handleChange = (value) => {
@@ -15,14 +16,15 @@ const AddCourse = () => {
   const categories = useSelector(selectCategoies);
 
   const [fileList, setFileList] = useState([
-    {
-      uid: "-1",
-      name: "image.png",
-      status: "done",
-      url: "https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png",
-    },
+    // {
+    //   uid: "-1",
+    //   name: "image.png",
+    //   status: "done",
+    //   url: "https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png",
+    // },
   ]);
   const onChange = ({ fileList: newFileList }) => {
+    // console.log(fileList?.[0]?.originFileObj);
     setFileList(newFileList);
   };
   const onPreview = async (file) => {
@@ -53,6 +55,8 @@ const AddCourse = () => {
       <p>Tạo khóa học của bạn</p>
       <Form
         onFinish={(value) => {
+          value["file"] = fileList?.[0]?.originFileObj;
+          courseService.create(value)
           console.log(value);
         }}
         onFinishFailed={(value) => {
@@ -66,14 +70,13 @@ const AddCourse = () => {
             <input className="add-name-course" type="text" />
           </Form.Item>
           <p className="title-add-name-course mt-3">Danh mục</p>
-          <Form.Item name={"SubCategory"}>
+          <Form.Item name={"subCategoryId"}>
             <Select
               className="select-categories mt-"
               mode="multiple"
               style={{
                 width: "600px",
                 height: "60px",
-                // border: "1px solid #EA4C89",
               }}
               placeholder="select one country"
               onChange={handleChange}
@@ -90,7 +93,7 @@ const AddCourse = () => {
           </Form.Item>
 
           <p className="title-add-name-course mt-3">Mô tả khóa học</p>
-          <Form.Item name="decription">
+          <Form.Item name="description">
             <Input.TextArea></Input.TextArea>
           </Form.Item>
           {/* <textarea

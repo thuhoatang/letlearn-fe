@@ -7,7 +7,7 @@ const ListCartHome = ({ courses }) => {
     <div className="list-cart my-4">
       {courses?.map((course) => (
         <CartHome
-          courseImage={course.image.url}
+          courseImage={course?.image?.url}
           courseTitle={course.title}
           lecturerAvatar={course.created_by?.avatar?.thumbUrl}
           price={course.price}

@@ -11,5 +11,25 @@ const courseService = {
 
     return rourses.data;
   },
+  create: async (data) => {
+    const rourses = await instance.post(
+      "/course",
+      {
+        ...data,
+      },
+      {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      }
+    );
+
+    return rourses.data;
+  },
+  courseOwner: async () => {
+    const rourses = await instance.get("course/owner");
+
+    return rourses.data;
+  },
 };
 export default courseService;

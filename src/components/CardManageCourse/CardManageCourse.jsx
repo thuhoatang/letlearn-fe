@@ -2,15 +2,15 @@ import React from "react";
 import "./CardManageCourse.css";
 import course from "./9.webp";
 
-const CardManageCourse = () => {
+const CardManageCourse = ({ title = "", image = course }) => {
   return (
     <div className="card-manage-course">
       <div className="img-course">
-        <img src={course} />
+        <img src={image} alt="" />
       </div>
       <div className="name-date">
         <p className="name-detail">
-          <b>Hoc lap trinh website don gian với 5 bước</b>
+          <b>{title}</b>
         </p>
 
         <p className="date-update">12/3/23</p>

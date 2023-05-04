@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./ManageCourse.css";
 import CardManageCourse from "../../CardManageCourse/CardManageCourse";
+import courseService from "../../../service/course";
 
 const ManageCourse = () => {
+  const [courses, setCourses] = useState([]);
+  useEffect(() => {
+    console.log(courses);
+    const callback = async () => {
+      const course = await courseService.courseOwner();
+      setCourses(course);
+    };
+    callback();
+  }, []);
   return (
     <div className="manage-course">
       <div className="header-manage-course">
@@ -26,12 +36,18 @@ const ManageCourse = () => {
       </div>
 
       <div className="list-course">
+        {courses?.map((course) => (
+          <CardManageCourse
+            title={course.title}
+            image={course?.image?.mediumUrl}
+          />
+        ))}
+        {/* <CardManageCourse />
         <CardManageCourse />
         <CardManageCourse />
         <CardManageCourse />
         <CardManageCourse />
-        <CardManageCourse />
-        <CardManageCourse />
+        <CardManageCourse /> */}
       </div>
     </div>
   );
