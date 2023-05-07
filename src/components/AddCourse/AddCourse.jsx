@@ -57,7 +57,6 @@ const AddCourse = () => {
         onFinish={(value) => {
           value["file"] = fileList?.[0]?.originFileObj;
           courseService.create(value)
-          console.log(value);
         }}
         onFinishFailed={(value) => {
           console.log(value);

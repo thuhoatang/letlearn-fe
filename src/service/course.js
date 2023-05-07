@@ -31,5 +31,11 @@ const courseService = {
 
     return rourses.data;
   },
+
+  detailtCourseWithTeacher: async (id) => {
+    const course = await instance.get("course/data/" + id);
+
+    return course.data;
+  },
 };
 export default courseService;

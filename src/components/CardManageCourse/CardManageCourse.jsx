@@ -1,8 +1,20 @@
 import React from "react";
 import "./CardManageCourse.css";
 import course from "./9.webp";
-
-const CardManageCourse = ({ title = "", image = course }) => {
+import { useNavigate } from "react-router-dom";
+function formatDate(date) {
+  const day = date.getDate().toString().padStart(2, "0");
+  const month = (date.getMonth() + 1).toString().padStart(2, "0");
+  const year = date.getFullYear().toString();
+  return `${day}/${month}/${year}`;
+}
+const CardManageCourse = ({
+  title = "",
+  image = course,
+  updatedAt = "",
+  id = 0,
+}) => {
+  const navigate = useNavigate();
   return (
     <div className="card-manage-course">
       <div className="img-course">
@@ -13,9 +25,16 @@ const CardManageCourse = ({ title = "", image = course }) => {
           <b>{title}</b>
         </p>
 
-        <p className="date-update">12/3/23</p>
+        <p className="date-update">{formatDate(new Date(updatedAt))}</p>
 
-        <button class="btn-update-course">Cập nhật khóa học</button>
+        <button
+          onClick={() => {
+            navigate("/teacher/add-course/" + id);
+          }}
+          class="btn-update-course"
+        >
+          Cập nhật khóa học
+        </button>
       </div>
 
       <div className="student">

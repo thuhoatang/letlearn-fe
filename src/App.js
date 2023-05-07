@@ -44,7 +44,7 @@ const router = createBrowserRouter([
     children: [
       { path: "manage-course", element: <ManageCourse /> },
       { path: "add-course", element: <AddCourse /> },
-      { path: "add-course/2", element: <AddFileCourse /> },
+      { path: "add-course/:courseId", element: <AddFileCourse /> },
     ],
   },
 ]);

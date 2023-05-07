@@ -6,13 +6,13 @@ import courseService from "../../../service/course";
 const ManageCourse = () => {
   const [courses, setCourses] = useState([]);
   useEffect(() => {
-    console.log(courses);
     const callback = async () => {
       const course = await courseService.courseOwner();
       setCourses(course);
     };
     callback();
   }, []);
+
   return (
     <div className="manage-course">
       <div className="header-manage-course">
@@ -40,6 +40,8 @@ const ManageCourse = () => {
           <CardManageCourse
             title={course.title}
             image={course?.image?.mediumUrl}
+            updatedAt={course.updated_at}
+            id={course.id}
           />
         ))}
         {/* <CardManageCourse />

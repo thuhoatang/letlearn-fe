@@ -1,10 +1,10 @@
 import React from "react";
 import ListOptionTypeLesson from "../ListOptionTypeLesson/ListOptionTypeLesson";
 
-const AddLesson = ({ lessonId }) => {
+const AddLesson = ({ sectionId, item }) => {
   return (
     <div>
-      <ListOptionTypeLesson lessonId={lessonId} />
+      <ListOptionTypeLesson sectionId={sectionId} item={item} />
     </div>
   );
 };
