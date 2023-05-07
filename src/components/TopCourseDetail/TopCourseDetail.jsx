@@ -2,24 +2,20 @@ import React from "react";
 import "./TopCourseDetail.css";
 import { Icon } from "@iconify/react";
 import imgCourse from "./8.webp";
+import { formatDate, formatNumber } from "../../untils";
 
-const TopCourseDetail = () => {
+const TopCourseDetail = ({ course }) => {
   return (
     <div className="top-course-detail">
       <div className="left">
-        <p className="name_course">Lập trình website đơn giản với 5 bước</p>
-        <p className="decription_course my-3">
-          Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
-          sint. Velit officia consequat duis enim velit mollit. Exercitation
-          veniam consequat sunt nostrud amet. Amet minim mollit non deserunt
-          ullamco est sit aliqua dolor do amet sint.
-        </p>
+        <p className="name_course">{course.title}</p>
+        <p className="decription_course my-3">{course.description}</p>
 
         <p className="lecturers_course">
-          Giảng viên: <b> Marvin McKinney</b>
+          Giảng viên: <b> {course.created_by.fullName}</b>
         </p>
         <p className="date_course my-3">
-          Ngày cập nhật: <b>24/04/2023</b>
+          Ngày cập nhật: <b>{formatDate(course.created_at)}</b>
         </p>
 
         <div className="react-course">
@@ -48,7 +44,7 @@ const TopCourseDetail = () => {
       </div>
       <div className="right">
         <div className="img_course">
-          <img src={imgCourse} alt="" />
+          <img src={course.image.url} alt="" />
         </div>
       </div>
     </div>

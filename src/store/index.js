@@ -4,13 +4,14 @@ import authReducer from "./reduces/auth";
 import categoriesReduce from "./reduces/categories";
 import spinnerReduce, { load, stop } from "./reduces/spinner";
 import instance from "../service/httpReuest";
-
+import CartReduce from "./reduces/cart";
 const store = configureStore({
   reducer: {
     counter: counterReducer,
     auth: authReducer,
     categories: categoriesReduce,
     spinner: spinnerReduce,
+    cart: CartReduce,
   },
 });
 instance.interceptors.request.use(
@@ -18,7 +19,7 @@ instance.interceptors.request.use(
     // Làm gì đó trước khi request dược gửi đi
     const jwt = localStorage.getItem("access_token");
     config.headers.Authorization = "Bearer " + jwt;
-    store.dispatch(load())
+    store.dispatch(load());
     return config;
   },
   function (error) {
@@ -29,12 +30,13 @@ instance.interceptors.request.use(
 
 instance.interceptors.response.use(
   function (config) {
-    store.dispatch(stop())
+    store.dispatch(stop());
 
     return config;
-  }, function (error) {
+  },
+  function (error) {
     // Làm gì đó với lỗi request
     return Promise.reject(error);
   }
-)
+);
 export default store;

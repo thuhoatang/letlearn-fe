@@ -1,6 +1,10 @@
 import instance from "./httpReuest";
 
 const courseService = {
+  getOne: async (id) => {
+    const rourses = await instance.get("/course/" + id);
+    return rourses.data;
+  },
   getAll: async (pageNumber = 1, pageSize = 6) => {
     const rourses = await instance.get("/course", {
       params: {
