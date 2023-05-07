@@ -6,14 +6,17 @@ import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import store from "./store/index";
 import Spinner from "./components/Spinner";
+import NotificationContext from "./contexts/notification";
+import Notification from "./components/Notification";
 console.log(3);
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
     <React.StrictMode>
       <Spinner />
-
-      <App />
+      <Notification>
+        <App />
+      </Notification>
     </React.StrictMode>
   </Provider>
 );

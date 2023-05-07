@@ -1,10 +1,12 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import "./Lecture01.css";
 import { UploadOutlined } from "@ant-design/icons";
 import { Button, Form, Input, Upload } from "antd";
 import lesson from "../../service/item";
 import ReactPlayer from "react-player";
 import { MangagementCourse } from "../../contexts";
+import NotificationContext from "../../contexts/notification";
+import { SmileOutlined } from "@ant-design/icons";
 
 const fileList = [
   {
@@ -31,11 +33,12 @@ const fileList = [
 const Lecture01 = ({ sectionId, item }) => {
   const [fileList, setFileList] = useState([]);
   const { reload } = useContext(MangagementCourse);
+  const { api } = useContext(NotificationContext);
 
   const handleFileChange = ({ fileList }) => {
-    console.log(fileList?.[0]);
     setFileList(fileList);
   };
+  const [form] = Form.useForm();
 
   return (
     <div className="add-lecture">
@@ -44,6 +47,7 @@ const Lecture01 = ({ sectionId, item }) => {
       </p>
       {item?.id ? null : (
         <Form
+          form={form}
           initialValues={item?.id ? { title: item.title } : {}}
           onFinish={(values) => {
             // console.log({
@@ -52,26 +56,31 @@ const Lecture01 = ({ sectionId, item }) => {
             //   time: 2,
             //   file: fileList?.[0],
             // });
-            lesson
-              .create({
-                ...values,
-                description: "default",
-                time: 2,
-                itemTypeId: 1,
-                sectionId: sectionId,
-                file: fileList?.[0].originFileObj,
-              })
-              .then((res) => {
-                console.log(res);
-                if (res.id) {
-                  reload();
-                }
-              });
-
-            console.log(reload);
+            // lesson
+            //   .create({
+            //     ...values,
+            //     description: "default",
+            //     time: 2,
+            //     itemTypeId: 1,
+            //     sectionId: sectionId,
+            //     file: fileList?.[0].originFileObj,
+            //   })
+            //   .then((res) => {
+            //     console.log(res);
+            //     if (res.id) {
+            //       reload();
+            //       form.resetFields(["title"]);
+            //       setFileList([]);
+            //       // api.
+            //     }
+            //   });
+            api.open({
+              message: "Thông báo",
+              description: "Đã thêm bài học thành công!",
+              icon: <SmileOutlined style={{ color: "#108ee9" }} />,
+            });
           }}
         >
-          {" "}
           <Form.Item
             name="title"
             rules={[{ required: true, message: "Please input your username!" }]}
