@@ -1,4 +1,5 @@
 .cart-course {
+    cursor: pointer;
     width: 100%;
     position: relative;
     padding: 10px

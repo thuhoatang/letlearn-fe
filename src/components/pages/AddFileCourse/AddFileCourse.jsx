@@ -15,7 +15,8 @@ const AddFileCourse = () => {
   const reload = useCallback(() => {
     setCreating(false);
     setempforReload(!tempForreload);
-  }, []);
+  }, [tempForreload]);
+  // console.log(course]);
 
   useEffect(() => {}, []);
   useEffect(() => {
@@ -24,7 +25,7 @@ const AddFileCourse = () => {
       setDetailt(detailt);
     };
     fun();
-  }, [tempForreload]);
+  }, [courseId, tempForreload]);
   // console.log(course);
   function onChangeForm() {}
 
@@ -67,14 +68,6 @@ const AddFileCourse = () => {
             reload={reload}
           />
         )}
-        {/* {Array.from(
-          { length: sectionCounter },
-          (_unused, index) => index + 1
-        ).map((sectionIndex) => {
-          const sectionId = `${sectionIndex}`;
-          return <AddSection sectionId={sectionId} courseId={detail?.id} />;
-        })} */}
-        {/* button thêm 1 section */}
         <span className="clown-add">
           <button className="button-add-section" onClick={addSection}>
             Thêm chương

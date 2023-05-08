@@ -1,12 +1,16 @@
 import { Drawer } from "antd";
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCart, setStatus } from "../../store/reduces/cart";
+import Item from "./Item";
+import style from "./style.module.scss";
+import classNames from "classnames";
+
+const cx = classNames.bind(style);
 
 export default function CartDrawer() {
-//   const [open, setOpen] = useState(true);
   const dispatch = useDispatch();
-  const cart = useSelector(selectCart)
+  const cart = useSelector(selectCart);
   const onClose = () => {
     dispatch(setStatus(false));
   };
@@ -14,14 +18,24 @@ export default function CartDrawer() {
   return (
     <div>
       <Drawer
-        title="Basic Drawer"
+        title="Giò hàng của bạn"
         placement="right"
         onClose={onClose}
         open={cart.status}
+        closable={false}
+        width={600}
       >
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
+        <Item />
+        <Item />
+        <Item />
+      
+
+        <div className={cx(style["text-gotocart"])}>
+          <h3>Total: 123.335 vnđ</h3>
+          <div>
+            <button>Thanh toán</button>
+          </div>
+        </div>
       </Drawer>
     </div>
   );

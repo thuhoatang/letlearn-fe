@@ -4,6 +4,7 @@ import { Icon } from "@iconify/react";
 import { useDispatch, useSelector } from "react-redux";
 import { login, logout, selectUser } from "../../store/reduces/auth";
 import { Link } from "react-router-dom";
+import { setStatus } from "../../store/reduces/cart";
 
 const RightHeader02 = () => {
   const dispatch = useDispatch();
@@ -13,13 +14,19 @@ const RightHeader02 = () => {
     <div className="right-hearder_02">
       <button className="btn-my_course">My Courses</button>
 
-      <button className="btn-my_cart">
+      <button
+        className="btn-my_cart"
+        onClick={() => {
+          dispatch(setStatus(true));
+        }}
+      >
         <Icon icon="fa6-solid:cart-arrow-down" className="icon-cart" />
       </button>
 
       <div className="avatar">
         <div className="btn-avt">
           <img
+            alt=""
             className="img-avata"
             src={
               user?.avatar?.thumbUrl

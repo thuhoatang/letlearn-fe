@@ -24,6 +24,7 @@ instance.interceptors.request.use(
   },
   function (error) {
     // Làm gì đó với lỗi request
+    
     return Promise.reject(error);
   }
 );
@@ -36,6 +37,8 @@ instance.interceptors.response.use(
   },
   function (error) {
     // Làm gì đó với lỗi request
+    store.dispatch(stop());
+
     return Promise.reject(error);
   }
 );

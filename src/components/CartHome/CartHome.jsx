@@ -3,8 +3,10 @@ import "./CartHome.css";
 import cart01 from "./8.webp";
 import { Icon } from "@iconify/react";
 import { formatNumber } from "../../untils";
+import { useNavigate } from "react-router-dom";
 
 const CartHome = ({
+  courseId,
   courseImage = cart01,
   courseTitle,
   lecturerAvatar = "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
@@ -12,15 +14,27 @@ const CartHome = ({
   nameLecturer = "None",
   loves = 0,
 }) => {
+  const navigate = useNavigate();
   return (
-    <div className="cart-course">
+    <div
+      onClick={() => {
+        navigate("/course-detail/" + courseId);
+      }}
+      className="cart-course"
+    >
       <div className="cart-content">
         <div className="header-cart">
           <img src={courseImage} />
           <div className="blank-cart"></div>
           <div className="name-course">
             <p className="title">{courseTitle}</p>
-            <button className="button-cart">
+            <button
+              className="button-cart"
+              onClick={(e) => {
+                e.stopPropagation();
+                console.log(1);
+              }}
+            >
               <Icon icon="teenyicons:bag-plus-solid" className="icon-cart" />
             </button>
           </div>

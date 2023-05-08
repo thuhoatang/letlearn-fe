@@ -6,6 +6,7 @@ import ImgCrop from "antd-img-crop";
 import { useSelector } from "react-redux";
 import { selectCategoies } from "../../store/reduces/categories";
 import courseService from "../../service/course";
+import { useNavigate } from "react-router-dom";
 
 const { Option } = Select;
 const handleChange = (value) => {
@@ -14,7 +15,7 @@ const handleChange = (value) => {
 
 const AddCourse = () => {
   const categories = useSelector(selectCategoies);
-
+  const navigate = useNavigate();
   const [fileList, setFileList] = useState([
     // {
     //   uid: "-1",
@@ -56,7 +57,11 @@ const AddCourse = () => {
       <Form
         onFinish={(value) => {
           value["file"] = fileList?.[0]?.originFileObj;
-          courseService.create(value)
+          courseService.create(value).then((data) => {
+            if (data.id) {
+              navigate("/teacher/add-course/" + data.id);
+            }
+          });
         }}
         onFinishFailed={(value) => {
           console.log(value);
@@ -111,18 +116,16 @@ const AddCourse = () => {
           </Form.Item>
 
           <p className="title-add-name-course mt-3">Ảnh bìa</p>
-          <ImgCrop rotationSlider>
-            <Upload
-              className="my-3"
-              action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
-              listType="picture-card"
-              fileList={fileList}
-              onChange={onChange}
-              onPreview={onPreview}
-            >
-              {fileList.length < 5 && "+ Upload"}
-            </Upload>
-          </ImgCrop>
+          <Upload
+            className="my-3"
+            action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+            listType="picture-card"
+            fileList={fileList}
+            onChange={onChange}
+            onPreview={onPreview}
+          >
+            {fileList.length < 5 && "+ Upload"}
+          </Upload>
 
           <div className="button-cancel-next">
             <button className="btn-cancel">Hủy</button>

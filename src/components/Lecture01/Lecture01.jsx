@@ -56,29 +56,28 @@ const Lecture01 = ({ sectionId, item }) => {
             //   time: 2,
             //   file: fileList?.[0],
             // });
-            // lesson
-            //   .create({
-            //     ...values,
-            //     description: "default",
-            //     time: 2,
-            //     itemTypeId: 1,
-            //     sectionId: sectionId,
-            //     file: fileList?.[0].originFileObj,
-            //   })
-            //   .then((res) => {
-            //     console.log(res);
-            //     if (res.id) {
-            //       reload();
-            //       form.resetFields(["title"]);
-            //       setFileList([]);
-            //       // api.
-            //     }
-            //   });
-            api.open({
-              message: "Thông báo",
-              description: "Đã thêm bài học thành công!",
-              icon: <SmileOutlined style={{ color: "#108ee9" }} />,
-            });
+            lesson
+              .create({
+                ...values,
+                description: "default",
+                time: 2,
+                itemTypeId: 1,
+                sectionId: sectionId,
+                file: fileList?.[0].originFileObj,
+              })
+              .then((res) => {
+                console.log(res);
+                if (res.id) {
+                  reload();
+                  form.resetFields(["title"]);
+                  setFileList([]);
+                  api.open({
+                    message: "Thông báo",
+                    description: "Đã thêm bài học thành công!",
+                    icon: <SmileOutlined style={{ color: "#108ee9" }} />,
+                  });
+                }
+              });
           }}
         >
           <Form.Item

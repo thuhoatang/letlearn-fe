@@ -7,6 +7,7 @@ const ListCartHome = ({ courses }) => {
     <div className="list-cart my-4">
       {courses?.map((course) => (
         <CartHome
+        courseId={course.id}
           courseImage={course?.image?.url}
           courseTitle={course.title}
           lecturerAvatar={course.created_by?.avatar?.thumbUrl}
@@ -15,17 +16,6 @@ const ListCartHome = ({ courses }) => {
           loves={course.loves}
         />
       ))}
-
-      {/* <CartHome />
-      <CartHome />
-      <CartHome />
-      <CartHome />
-      <CartHome />
-      <CartHome />
-      <CartHome />
-      <CartHome />
-      <CartHome />
-      <CartHome /> */}
     </div>
   );
 };

@@ -16,6 +16,7 @@ import AddFileCourse from "./components/pages/AddFileCourse/AddFileCourse";
 import { Provider, useDispatch } from "react-redux";
 import { getProfile } from "./store/reduces/auth";
 import { getAllCategories } from "./store/reduces/categories";
+import CartDrawer from "./components/CartDrawer";
 
 const router = createBrowserRouter([
   {
@@ -58,7 +59,8 @@ function App() {
   return (
     <div className="App">
       <React.StrictMode>
-        <RouterProvider router={router} />
+        <RouterProvider router={router}>
+        </RouterProvider>
       </React.StrictMode>
     </div>
   );
