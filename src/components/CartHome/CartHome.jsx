@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./CartHome.css";
 import cart01 from "./8.webp";
 import { Icon } from "@iconify/react";
 import { formatNumber } from "../../untils";
 import { useNavigate } from "react-router-dom";
+import cartService from "../../service/cart";
+import { useDispatch, useSelector } from "react-redux";
+import { selectCart, setStatus, updateCarts } from "../../store/reduces/cart";
+import NotificationContext from "../../contexts/notification";
 
 const CartHome = ({
   courseId,
@@ -15,6 +19,9 @@ const CartHome = ({
   loves = 0,
 }) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const cart = useSelector(selectCart);
+  const { api } = useContext(NotificationContext);
   return (
     <div
       onClick={() => {
@@ -30,10 +37,23 @@ const CartHome = ({
             <p className="title">{courseTitle}</p>
             <button
               className="button-cart"
-              onClick={(e) => {
+              onClick={async (e) => {
+                const result = cart.items.find(
+                  (item) => item.courseId == courseId
+                );
                 e.stopPropagation();
-                console.log(1);
-              }}
+                console.log(result);
+                if (!result) {
+                  await cartService.add(courseId);
+                  dispatch(updateCarts());
+                  api.open({
+                    message: "Thông báo",
+                    description: "Đã thêm khóa học vào giỏ hàng",
+                    placement: "top"
+                  });  
+                }
+                dispatch(setStatus(true));
+                    }}
             >
               <Icon icon="teenyicons:bag-plus-solid" className="icon-cart" />
             </button>

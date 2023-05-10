@@ -19,7 +19,7 @@ instance.interceptors.request.use(
     // Làm gì đó trước khi request dược gửi đi
     const jwt = localStorage.getItem("access_token");
     config.headers.Authorization = "Bearer " + jwt;
-    store.dispatch(load());
+    // store.dispatch(load());
     return config;
   },
   function (error) {
@@ -31,13 +31,13 @@ instance.interceptors.request.use(
 
 instance.interceptors.response.use(
   function (config) {
-    store.dispatch(stop());
+    // store.dispatch(stop());
 
     return config;
   },
   function (error) {
     // Làm gì đó với lỗi request
-    store.dispatch(stop());
+    // store.dispatch(stop());
 
     return Promise.reject(error);
   }

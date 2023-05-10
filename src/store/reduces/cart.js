@@ -1,18 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit";
+import cartService from "../../service/cart";
 
 export const cartSlice = createSlice({
   name: "cart",
   initialState: {
     status: false,
+    items: [],
   },
   reducers: {
     setStatus: (state, action) => {
       state.status = action.payload;
     },
+    setCartItems: (state, action) => {
+      state.items = action.payload;
+    },
   },
 });
 
-export const { setStatus } = cartSlice.actions;
+export const { setStatus, setCartItems } = cartSlice.actions;
 
 // The function below is called a thunk and allows us to perform async logic. It
 // can be dispatched like a regular action: `dispatch(incrementAsync(10))`. This
@@ -20,14 +25,21 @@ export const { setStatus } = cartSlice.actions;
 // code can then be executed and other actions can be dispatched
 
 // get .me
-// export const getProfile = () => (dispatch) => {
-//   auth.getMe().then((response) => {
-//     dispatch(login(response.data));
-//   });
-//   //   setTimeout(() => {
-//   //     dispatch(incrementByAmount(amount));
-//   //   }, 1000);
-// };
+export const updateCarts = () => (dispatch) => {
+  cartService.get().then((data) => dispatch(setCartItems(data)));
+  // auth.getMe().then((response) => {
+  //   dispatch(login(response.data));
+  // });
+  //   setTimeout(() => {
+  //     dispatch(incrementByAmount(amount));
+  //   }, 1000);
+};
+
+export const deleteCart = (courseId) => (dispatch) => {
+  cartService.delete(courseId).then(() => {
+    cartService.get().then((data) => dispatch(setCartItems(data)));
+  });
+};
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of

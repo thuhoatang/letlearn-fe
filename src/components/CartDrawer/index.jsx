@@ -1,10 +1,11 @@
 import { Drawer } from "antd";
-import React from "react";
+import React, { useEffect, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectCart, setStatus } from "../../store/reduces/cart";
+import { selectCart, setStatus, updateCarts } from "../../store/reduces/cart";
 import Item from "./Item";
 import style from "./style.module.scss";
 import classNames from "classnames";
+import { formatNumber } from "../../untils";
 
 const cx = classNames.bind(style);
 
@@ -14,7 +15,13 @@ export default function CartDrawer() {
   const onClose = () => {
     dispatch(setStatus(false));
   };
-
+  useEffect(() => {
+    dispatch(updateCarts());
+  }, []);
+  const total = useMemo(() => {
+    // console.log(cart.items.reduce((pre,item)=>{console.log(item.course.price); return item.course.price+pre},0));
+   return cart.items.reduce((pre,item)=>{ return item.course.price+pre},0)
+  }, [cart]);
   return (
     <div>
       <Drawer
@@ -25,13 +32,15 @@ export default function CartDrawer() {
         closable={false}
         width={600}
       >
+        {cart?.items.map((item, index) => (
+          <Item key={index} item={item} />
+        ))}
+        {/* <Item />
         <Item />
-        <Item />
-        <Item />
-      
+        <Item /> */}
 
         <div className={cx(style["text-gotocart"])}>
-          <h3>Total: 123.335 vnđ</h3>
+          <h3>{`Total: ${formatNumber(total)} vnđ`}</h3>
           <div>
             <button>Thanh toán</button>
           </div>
