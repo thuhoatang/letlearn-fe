@@ -17,6 +17,7 @@ import { Provider, useDispatch } from "react-redux";
 import { getProfile } from "./store/reduces/auth";
 import { getAllCategories } from "./store/reduces/categories";
 import CartDrawer from "./components/CartDrawer";
+import CartCheckout from "./components/pages/CartCheckout/CartCheckout";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,7 @@ const router = createBrowserRouter([
       { path: "home", element: <HomeLogged /> },
       { path: "course-management", element: <StudentCourseManagement /> },
       { path: "course-detail/:courseId", element: <CourseDetail /> },
+      { path: "cart-checkout", element: <CartCheckout /> },
     ],
   },
   {
@@ -59,8 +61,7 @@ function App() {
   return (
     <div className="App">
       <React.StrictMode>
-        <RouterProvider router={router}>
-        </RouterProvider>
+        <RouterProvider router={router}></RouterProvider>
       </React.StrictMode>
     </div>
   );

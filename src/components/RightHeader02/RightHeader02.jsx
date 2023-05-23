@@ -3,16 +3,23 @@ import "./RightHeader02.css";
 import { Icon } from "@iconify/react";
 import { useDispatch, useSelector } from "react-redux";
 import { login, logout, selectUser } from "../../store/reduces/auth";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { setStatus } from "../../store/reduces/cart";
+import StudentCourseManagement from "../pages/StudentCourseManagement/StudentCourseManagement";
 
 const RightHeader02 = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
 
+  const navigate = useNavigate();
   return (
     <div className="right-hearder_02">
-      <button className="btn-my_course">My Courses</button>
+      <button
+        className="btn-my_course"
+        onClick={() => navigate("/course-management")}
+      >
+        My Courses
+      </button>
 
       <button
         className="btn-my_cart"

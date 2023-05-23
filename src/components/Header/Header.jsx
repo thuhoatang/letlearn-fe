@@ -20,7 +20,7 @@ function Header() {
 
         <div className="menu">
           <div className="menu-header">
-            <a href="#">Trang chủ</a>
+            <Link to="/home">Trang chủ</Link>
           </div>
           <div className="menu-header categorise">
             <a href="#">Danh mục</a>
