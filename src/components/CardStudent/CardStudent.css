@@ -1,7 +1,13 @@
 .cart-course {
     width: 100%;
     position: relative;
-    padding: 10px
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.cart-course:hover img {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
 }
 
 .cart-content {

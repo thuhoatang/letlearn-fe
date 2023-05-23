@@ -20,6 +20,7 @@ function getItem(label, key, icon, children, type) {
     children,
     label,
     type,
+    className: "fontSize",
   };
 }
 const items = [
