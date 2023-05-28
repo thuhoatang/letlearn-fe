@@ -1,18 +1,33 @@
-import React from "react";
+import React, { useMemo, useRef } from "react";
 import "./CartCheckout.css";
 import ListCardPay from "../../ListCardPay/ListCardPay";
 import logovnpay from "./vnpay-icon.jpg";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { selectCart } from "../../../store/reduces/cart";
+import { formatNumber } from "../../../untils";
+import { selectUser } from "../../../store/reduces/auth";
 
 const CartCheckout = () => {
+  const cart = useSelector(selectCart);
+  const form = useRef();
+  const user = useSelector(selectUser);
+
+  const total = useMemo(() => {
+    // console.log(cart.items.reduce((pre,item)=>{console.log(item.course.price); return item.course.price+pre},0));
+    return cart.items.reduce((pre, item) => {
+      return item.course.price + pre;
+    }, 0);
+  }, [cart]);
+
   return (
     <div className="cart-checkout">
-      <ListCardPay />
+      <ListCardPay items={cart.items} />
 
       <div className="total-pay">
         <h3>Tổng cộng</h3>
         <div className="line-cart"></div>
-        <h5>1.050.000 VNĐ</h5>
+        <h5>{formatNumber(total)} VNĐ</h5>
         <br />
 
         <h3>Phương thức thanh toán</h3>
@@ -35,11 +50,28 @@ const CartCheckout = () => {
             </p>
 
             <p>
-              <b>129.000 vnđ</b>
+              <b>{formatNumber(total)} vnđ</b>
             </p>
           </div>
           <div className="box-total-footer text-center py-2">
-            <button className="payment-procedures bg-transparent">
+            <form
+              ref={form}
+              hidden
+              action="http://localhost:8000/payment"
+              method="post"
+            >
+              <input type="text" value={total} name="amount" />
+              <input type="text" value={"VNBANK"} name="bankCode" />
+              <input type="text" value={"vn"} name="language" />
+              <input type="text" value={user?.sub} name="userId" />
+              <button type="submit">Thanh toan</button>
+            </form>
+            <button
+              onClick={() => {
+                form.current.submit();
+              }}
+              className="payment-procedures bg-transparent"
+            >
               Thủ tục thanh toán
             </button>
           </div>

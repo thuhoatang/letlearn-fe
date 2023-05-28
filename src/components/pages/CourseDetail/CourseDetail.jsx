@@ -15,7 +15,7 @@ const CourseDetail = () => {
       setCourse(course?.[0]);
     };
     fun();
-  }, []);
+  }, [courseId]);
 
   const { sections, ...detail } = course || {};
   return (
@@ -26,7 +26,7 @@ const CourseDetail = () => {
           <div className="body-detail-course">
             <LeftCourseDetail sections={sections} />
 
-            <RightCourseDetail />
+            <RightCourseDetail courseId={courseId} />
           </div>
         </>
       ) : null}

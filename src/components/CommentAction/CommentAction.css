@@ -3,9 +3,13 @@
     display: flex;
     flex-wrap: nowrap;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start
+
 }
 
+.comment-action .input-content{
+    width: -webkit-fill-available;
+}
 
 .comment-action .input-comment {
     width: 400px;

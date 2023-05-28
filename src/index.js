@@ -12,13 +12,12 @@ console.log(3);
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
-
-    <React.StrictMode>
-      <Spinner />
-      <Notification>
-        <App />
-      </Notification>
-    </React.StrictMode>
+    {/* <React.StrictMode> */}
+    <Spinner />
+    <Notification>
+      <App />
+    </Notification>
+    {/* </React.StrictMode> */}
   </Provider>
 );
 

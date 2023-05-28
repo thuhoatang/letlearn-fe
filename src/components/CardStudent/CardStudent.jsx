@@ -2,15 +2,27 @@ import React from "react";
 import "./CardStudent.css";
 import cart01 from "./12.webp";
 import { Icon } from "@iconify/react";
-const CardStudent = () => {
+import { useNavigate } from "react-router-dom";
+
+const CardStudent = ({
+  id,
+  image = cart01,
+  title = "",
+  created_by = "",
+  avatar = "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
+}) => {
+
+  const navigate = useNavigate()
   return (
-    <div className="cart-course">
+    <div onClick={()=>{
+      navigate(`/watch/${id}`)
+    }} className="cart-course">
       <div className="cart-content">
         <div className="header-cart">
-          <img src={cart01} />
+          <img src={image}  alt=""/>
           <div className="blank-cart"></div>
           <div className="name-course">
-            <p className="title">Lập trình Mobile for beginner</p>
+            <p className="title">{title}</p>
           </div>
         </div>
       </div>
@@ -18,17 +30,14 @@ const CardStudent = () => {
       <div className="footer-cart">
         <div className="left-footer-cart">
           <div className="avatar">
-            <img
-              src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
-              alt=""
-            />
+            <img src={avatar} alt="" />
           </div>
 
           <div className="info-lecturer">
             <a href="#">
               <label className="name-lecturer mx-3">
                 {" "}
-                <b>Guy Hawkins</b>
+                <b>{created_by}</b>
               </label>
               <label className="lecturer-armorial">Pro</label>
             </a>

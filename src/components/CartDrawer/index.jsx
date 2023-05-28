@@ -6,12 +6,14 @@ import Item from "./Item";
 import style from "./style.module.scss";
 import classNames from "classnames";
 import { formatNumber } from "../../untils";
+import { useNavigate } from "react-router-dom";
 
 const cx = classNames.bind(style);
 
 export default function CartDrawer() {
   const dispatch = useDispatch();
   const cart = useSelector(selectCart);
+  const navigate = useNavigate()
   const onClose = () => {
     dispatch(setStatus(false));
   };
@@ -42,7 +44,9 @@ export default function CartDrawer() {
         <div className={cx(style["text-gotocart"])}>
           <h3>{`Total: ${formatNumber(total)} vnđ`}</h3>
           <div>
-            <button>Thanh toán</button>
+            <button onClick={()=>{
+              navigate("/cart-checkout")
+            }} >Thanh toán</button>
           </div>
         </div>
       </Drawer>

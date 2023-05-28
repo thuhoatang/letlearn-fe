@@ -5,6 +5,7 @@ import categoriesReduce from "./reduces/categories";
 import spinnerReduce, { load, stop } from "./reduces/spinner";
 import instance from "../service/httpReuest";
 import CartReduce from "./reduces/cart";
+import MyCourseReduce from "./reduces/myCourseSlice"
 const store = configureStore({
   reducer: {
     counter: counterReducer,
@@ -12,6 +13,7 @@ const store = configureStore({
     categories: categoriesReduce,
     spinner: spinnerReduce,
     cart: CartReduce,
+    myCourse: MyCourseReduce
   },
 });
 instance.interceptors.request.use(

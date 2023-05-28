@@ -18,6 +18,7 @@ import { getProfile } from "./store/reduces/auth";
 import { getAllCategories } from "./store/reduces/categories";
 import CartDrawer from "./components/CartDrawer";
 import CartCheckout from "./components/pages/CartCheckout/CartCheckout";
+import WatchVideo from "./components/pages/WatchVideo";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,7 @@ const router = createBrowserRouter([
       { path: "course-management", element: <StudentCourseManagement /> },
       { path: "course-detail/:courseId", element: <CourseDetail /> },
       { path: "cart-checkout", element: <CartCheckout /> },
+      {path: "watch/:id", element: <WatchVideo/>}
     ],
   },
   {
