@@ -13,20 +13,21 @@ const HomeLogged = () => {
   const [courses, serCourses] = useState([]);
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
-
+  const [size, setSize] = useState(6);
   useEffect(() => {
     const fun = async () => {
       const objectJsonValue = Object.fromEntries(queryParams.entries());
-      
+
       if (objectJsonValue.category)
-      objectJsonValue.category = [objectJsonValue.category];
+        objectJsonValue.category = [objectJsonValue.category];
+
+      objectJsonValue.size = size;
       const courseResult = await courseService.search(objectJsonValue);
-      console.log(11312312);
       console.log(courseResult);
-      serCourses(courseResult);
+      serCourses(courseResult.items);
     };
     fun();
-  }, [queryParams.toString()]);
+  }, [queryParams.toString(), size]);
   // useEffect(() => {
   //   const runFun = async () => {
   //     let course = await courseService.getAll();
@@ -43,7 +44,11 @@ const HomeLogged = () => {
       <Filter />
       <ListCartHome courses={courses} />
       <div className="loadmore">
-        <Button title="Xem thêm" bgColor="pink" />
+        <Button
+          onClick={() => setSize(size + 3)}
+          title="Xem thêm"
+          bgColor="pink"
+        />
       </div>
     </>
   );
