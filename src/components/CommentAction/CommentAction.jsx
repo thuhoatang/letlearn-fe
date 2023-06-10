@@ -34,8 +34,13 @@ const CommentAction = ({ comment }) => {
             <TextArea title="Nhập bình luận của bạn" rows={4} />
           </Form.Item>
           <Form.Item>
-            <Button htmlType="submit" onClick={() => {}} type="primary">
-              Add Comment
+            <Button
+              htmlType="submit"
+              onClick={() => {}}
+              type="primary"
+              style={{ background: "#EA4C89" }}
+            >
+              Thêm bình luận
             </Button>
           </Form.Item>
         </Form>

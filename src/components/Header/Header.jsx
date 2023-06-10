@@ -29,8 +29,8 @@ function Header() {
               {categories.map((category) => (
                 <Link to="#">{category.name}</Link>
               ))}
-              {/* <Link to="#">Danh mục 1 Danh mục</Link> */}
-              {/* <a href="#">Danh mục 1 Danh mục</a>
+              {/* <Link to="#">Danh mục 1 Danh mục</Link>
+              <a href="#">Danh mục 1 Danh mục</a>
               <a href="#">Danh mục 2</a>
               <a href="#">Danh mục 3</a>
               <a href="#">Danh mục 4</a>
