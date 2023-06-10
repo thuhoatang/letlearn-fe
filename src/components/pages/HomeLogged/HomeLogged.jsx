@@ -7,18 +7,34 @@ import Filter from "../../Filter/Filter";
 import ListCartHome from "../../ListCartHome/ListCartHome";
 import Button from "../../Button/Button";
 import courseService from "../../../service/course";
+import { useLocation } from "react-router-dom";
 
 const HomeLogged = () => {
   const [courses, serCourses] = useState([]);
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
 
   useEffect(() => {
-    const runFun = async () => {
-      let course = await courseService.getAll();
-      serCourses(course);
-      // console.log(course);
+    const fun = async () => {
+      const objectJsonValue = Object.fromEntries(queryParams.entries());
+      
+      if (objectJsonValue.category)
+      objectJsonValue.category = [objectJsonValue.category];
+      const courseResult = await courseService.search(objectJsonValue);
+      console.log(11312312);
+      console.log(courseResult);
+      serCourses(courseResult);
     };
-    runFun();
-  }, []);
+    fun();
+  }, [queryParams.toString()]);
+  // useEffect(() => {
+  //   const runFun = async () => {
+  //     let course = await courseService.getAll();
+  //     serCourses(course);
+  //     // console.log(course);
+  //   };
+  //   runFun();
+  // }, []);
   return (
     <>
       <Banner />

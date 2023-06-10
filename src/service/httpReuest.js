@@ -8,5 +8,17 @@ const instance = axios.create({
   headers: { Authorization: "Bearer" },
 });
 
+instance.interceptors.response.use(
+  (response) => {
+    return response;
+  },
+  (error) => {
+    console.log(error.response.status);
+    if (error.response.status == 401)
+      window.location.href = "http://localhost:3000/account/sign-in";
+
+    return Promise.reject(error);
+  }
+);
 
 export default instance;

@@ -74,7 +74,7 @@ const RightCourseDetail = ({ courseId }) => {
         </p>
       </div>
 
-      {user && <CommentAction comment={comment} />}
+      {/* {user && <CommentAction comment={comment} />} */}
 
       <div className="list-item_comment">
         {comments.map((comment) => (

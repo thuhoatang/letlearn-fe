@@ -1,13 +1,15 @@
 import React from "react";
 import "./HeaderRightTeacher.css";
+import { Link } from "react-router-dom";
 
 const HeaderRightTeacher = () => {
   return (
     <div className="header-right-teacher">
       <div>
-        <a href="#" className="mx-5">
+        {/* <a href="#" className="mx-5">
           Trở thành học viên
-        </a>
+        </a> */}
+        <Link className="mx-5" to="/home">Quay lại trang chủ</Link>
       </div>
       <div className="avt-img">
         <img

@@ -54,5 +54,14 @@ const courseService = {
 
     return res.data;
   },
+  search: async (data) => {
+    const res = await instance.get("course/search", {
+      params: data,
+    });
+
+    return res.data;
+  },
+
+
 };
 export default courseService;

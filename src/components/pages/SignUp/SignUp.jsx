@@ -10,7 +10,6 @@ const onFinish = (values) => {
   auth.signUp({
     ...values,
   });
-  console.log("Success:", values);
 };
 const onFinishFailed = (errorInfo) => {
   console.log("Failed:", errorInfo);

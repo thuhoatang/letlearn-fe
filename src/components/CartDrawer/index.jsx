@@ -7,22 +7,26 @@ import style from "./style.module.scss";
 import classNames from "classnames";
 import { formatNumber } from "../../untils";
 import { useNavigate } from "react-router-dom";
+import { selectUser } from "../../store/reduces/auth";
 
 const cx = classNames.bind(style);
 
 export default function CartDrawer() {
   const dispatch = useDispatch();
   const cart = useSelector(selectCart);
-  const navigate = useNavigate()
+  const auth = useSelector(selectUser);
+  const navigate = useNavigate();
   const onClose = () => {
     dispatch(setStatus(false));
   };
   useEffect(() => {
-    dispatch(updateCarts());
-  }, []);
+    if (auth) dispatch(updateCarts());
+  }, [auth?.id]);
   const total = useMemo(() => {
     // console.log(cart.items.reduce((pre,item)=>{console.log(item.course.price); return item.course.price+pre},0));
-   return cart.items.reduce((pre,item)=>{ return item.course.price+pre},0)
+    return cart.items.reduce((pre, item) => {
+      return item.course.price + pre;
+    }, 0);
   }, [cart]);
   return (
     <div>
@@ -44,9 +48,13 @@ export default function CartDrawer() {
         <div className={cx(style["text-gotocart"])}>
           <h3>{`Total: ${formatNumber(total)} vnđ`}</h3>
           <div>
-            <button onClick={()=>{
-              navigate("/cart-checkout")
-            }} >Thanh toán</button>
+            <button
+              onClick={() => {
+                navigate("/cart-checkout");
+              }}
+            >
+              Thanh toán
+            </button>
           </div>
         </div>
       </Drawer>

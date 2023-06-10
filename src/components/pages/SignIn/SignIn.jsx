@@ -87,7 +87,7 @@ const SignIn = () => {
           <p>{message}</p>
           <Form.Item
             className="username"
-            name="username"
+            name="email"
             rules={[
               {
                 required: true,

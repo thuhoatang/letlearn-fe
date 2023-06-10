@@ -7,32 +7,47 @@ import ListCourse from "./ListCourse";
 import "./style.css";
 import { useParams } from "react-router-dom";
 import courseService from "../../../service/course";
+import { learnedService } from "../../../store/reduces/learnedService";
+import General from "./General/General";
+import Comments from "./ListCourse/Comments";
 const cx = classNames.bind(style);
 const onChange = (key) => {
   console.log(key);
 };
 
-const items = [
-  {
-    key: "1",
-    label: `Thông tin chung khóa học`,
-    children: `èhwufuh`,
-  },
-  {
-    key: "2",
-    label: `Thông tin bài học`,
-    children: `Content of Tab Pane 2`,
-  },
-  {
-    key: "3",
-    label: `Mục trao đổi giữa các học viên`,
-    children: `Content of Tab Pane 3`,
-  },
-];
+
 export default function WatchVideo() {
   const { id } = useParams();
   const [course, sertCourse] = useState();
   const [lectureSelected, setLectureSelected] = useState();
+  const [fresh, setFresh] = useState(false);
+  const [progress, setProgress] = useState(false);
+  const refresh = useMemo(
+    () => () => {
+      setFresh(!fresh);
+    },
+    []
+  );
+  const items = useMemo(
+    () => [
+      {
+        key: "1",
+        label: `Tổng quang`,
+        children: <General course={course} />,
+      },
+      {
+        key: "2",
+        label: `Trao đổi`,
+        children:  <Comments courseId={id} />,
+      },
+      {
+        key: "3",
+        label: `Đánh giá`,
+        children: `Content of Tab Pane 3`,
+      },
+    ],
+    [course]
+  );
 
   useEffect(() => {
     const func = async () => {
@@ -40,7 +55,7 @@ export default function WatchVideo() {
       sertCourse(course);
     };
     func();
-  }, []);
+  }, [fresh]);
 
   const lecture = useMemo(() => {
     const items = course?.course.sections
@@ -63,6 +78,19 @@ export default function WatchVideo() {
         <div className={cx(style["wrapper"])}>
           <div className={cx(style.video)}>
             <ReactPlayer
+              onProgress={async (pro) => {
+                const { played } = pro;
+                console.log(!progress);
+                if (played >= 0.85 && !progress) {
+                  // Thực hiện hành động tại đây khi video đạt đến 85% thời gian
+                  console.log("Đã đạt đến 85% thời gian của video");
+                  await learnedService.create(+lectureSelected.substring(4));
+                  refresh();
+
+                  setProgress(true);
+                  // Gọi hàm hoặc thực hiện hành động mong muốn
+                }
+              }}
               width={"100%"}
               height={"500px"}
               // url={"https://www.youtube.com/watch?v=EKEQGOtraOM"}
@@ -76,6 +104,8 @@ export default function WatchVideo() {
           </div>
           <div className={cx(style.lecture)}>
             <ListCourse
+              refresh={refresh}
+              courseId={course.course.id}
               sections={course.course.sections.sort((a, b) => a.id - b.id)}
               lectureBeingLearned={course.lectureBeingLearned}
               setLectureSelected={setLectureSelected}
