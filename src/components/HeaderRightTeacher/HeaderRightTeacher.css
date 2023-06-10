@@ -4,7 +4,11 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    background: white;
+    background: #ea4c89;
+    margin-top: 10px;
+    z-index: 9999;
+    border-radius: 10px;
+    padding: 10px
 }
 
 .header-right-teacher .avt-img {
@@ -23,5 +27,5 @@
 
 .header-right-teacher a {
     text-decoration: none;
-    color: #EA4C89
+    color: white
 }

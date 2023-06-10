@@ -1,5 +1,33 @@
 .footer {
     height: 300px;
     width: 100%;
-    background: #FAFAFB
+    background: #efeff9;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    flex-direction: row;
+}
+
+.footer .logo-left {
+    width: 40%;
+    /* background: #a4a4ca; */
+    padding: 50px 89px;
+
+}
+
+.footer .content-right {
+    width: 60%;
+    padding: 50px 89px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row
+}
+
+.footer .content-right a {
+    text-decoration: none;
+    color: black;
+}
+
+.footer .content-right a:hover {
+    color: #EA4C89;
 }
