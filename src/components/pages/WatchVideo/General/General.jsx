@@ -40,7 +40,7 @@ export default function General({ course }) {
                   <Avatar shape="square" size={64} src={item.image.thumbUrl} />
                 }
                 title={
-                  <Link to={"/course"}>{item.title}</Link>
+                  <Link to={"/course-detail/" + item.id}>{item.title}</Link>
                   // <a href="https://ant.design">{item.title}</a>
                 }
                 description={item.description}
