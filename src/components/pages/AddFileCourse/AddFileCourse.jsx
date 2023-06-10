@@ -42,7 +42,7 @@ const AddFileCourse = () => {
       </div>
 
       <div className="curriculum">
-        {" "}
+        
         <MangagementCourse.Provider
           value={{
             reload: reload,

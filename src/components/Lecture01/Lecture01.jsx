@@ -125,7 +125,7 @@ const Lecture01 = ({ sectionId, item }) => {
       )}
 
       {item?.typeItem?.id == 1 ? (
-        <ReactPlayer url={item.lecture.video} controls={true} />
+        <ReactPlayer url={item?.lecture?.video} controls={true} />
       ) : null}
       {/* <Button onClick={handleUpload}>Tải lên</Button> */}
       {/* {fileList.map((file) => (
