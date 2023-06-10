@@ -19,7 +19,7 @@ const ListCardStudent = () => {
         <CardStudent
           id={course.courseId}
           key={course.courseId}
-          image={course.course.image.thumbUrl}
+          image={course.course.image.mediumUrl}
           title={course.course.title}
           created_by={course.course.created_by.fullName}
           // avatar={
