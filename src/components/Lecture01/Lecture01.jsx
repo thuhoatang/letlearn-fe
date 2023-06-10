@@ -42,8 +42,8 @@ const Lecture01 = ({ sectionId, item }) => {
 
   return (
     <div className="add-lecture">
-      <p className="mx-0">
-        <b>Tiêu đề bài học {item?.id ? item.title : "Đang được thêm"}</b>
+      <p className="mx-0 my-2" style={{ fontSize: "18px" }}>
+        <b>Bài học: </b> {item?.id ? item.title : "Đang được thêm"}
       </p>
       {item?.id ? null : (
         <Form
@@ -116,7 +116,7 @@ const Lecture01 = ({ sectionId, item }) => {
             <button
               type="submit"
               // hidden={!creating}
-              className="button-submit-lesson"
+              className="button-submit-lesson mx-0 mt-3"
             >
               Đồng ý
             </button>

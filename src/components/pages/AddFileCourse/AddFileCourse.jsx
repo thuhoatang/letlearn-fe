@@ -35,14 +35,13 @@ const AddFileCourse = () => {
 
   return (
     <div className="add-file-course">
-      <p className="title">Create course</p>
+      <p className="title">Thêm khóa học</p>
       <div className="list-button d-flex">
         <button className="button-back mx-4">Quay lại</button>
         <button className="button-back">Lưu bài</button>
       </div>
 
       <div className="curriculum">
-        
         <MangagementCourse.Provider
           value={{
             reload: reload,
@@ -63,7 +62,7 @@ const AddFileCourse = () => {
         {creating && (
           <AddSection
             index={detail?.sections.length}
-            title="Be creating"
+            title="Đang tạo"
             courseId={detail?.id}
             reload={reload}
           />
